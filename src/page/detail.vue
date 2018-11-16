@@ -17,8 +17,7 @@
 				</el-col>
 				<el-col :span="23">
 					<div class="grid-content">
-						<div class="a-con">
-							<p class="f16">{{essay.content}}</p>
+						<div class="a-con f16 markdown-body" v-highlight v-html="markdownToHtml">
 						</div>
 						<h1 class="f18 fwb" style="margin: 20px 0;" v-if="comments.length">留言</h1>
 						<div class="a-comment" v-if="comments.length">
@@ -37,16 +36,18 @@
 
 <script>
 	const va = window.va || {};
+	import $ from 'jQuery';
 	import Header from '../components/header';
 	import Comment from '../components/comment';
 	import Api from '../api/getData';
+	import marked from 'marked';
 
 	export default {
 		data(){
 			return {
 				defaultAvatar: 'http://mp5.jmstatic.com/zengzhang/a6030869c5809c29d962a555cf744cbf.jpg',
 				textarea: '',
-				essay: null,
+				essay: {},
 				comments: []
 			}
 		},
@@ -61,7 +62,9 @@
 			Comment
 		},
 		computed: {
-
+			markdownToHtml(){
+				return this.essay && marked(this.essay.content);
+			}
 		},
 		methods: {
 			async onSubmit(){
@@ -101,10 +104,23 @@
 				} catch (err) {
 					this.$message.error(err.message || '文章详情获取失败，请稍后重试');
 				}
+			},
+			addLineNum () {
+				$("code").each(function(){
+					$(this).html("<ul><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ul>");
+				});
 			}
 		},
 		watch: {
-
+			'essay.content': {
+				handler() {
+					setTimeout(() => {
+						// this.addLineNum();
+					}, 1000);
+				},
+				immediate: true,
+				deep: true
+			}
 		}
 	}
 </script>
@@ -134,7 +150,7 @@
 	.a-con{
 		margin-top: 20px;
 		padding: 20px 30px;
-		background: #f0f0f0;
+		// background: pink;
 		border-radius: 8px;
 	}
 	.a-comment{

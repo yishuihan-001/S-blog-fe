@@ -1,0 +1,134 @@
+/* school book */
+.hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 15px 0.5em 0.5em 30px;
+	font-size: 11px;
+	line-height: 16px
+}
+
+pre {
+	background: #f6f6ae;
+	border-top: solid 2px #d2e8b9;
+	border-bottom: solid 1px #d2e8b9
+}
+
+.hljs-keyword,.hljs-selector-tag,.hljs-literal {
+	color: #005599;
+	font-weight: bold
+}
+
+.hljs,.hljs-subst {
+	color: #3e5915
+}
+
+.hljs-string,.hljs-title,.hljs-section,.hljs-type,.hljs-symbol,.hljs-bullet,.hljs-attribute,.hljs-built_in,.hljs-builtin-name,.hljs-addition,.hljs-variable,.hljs-template-tag,.hljs-template-variable,.hljs-link {
+	color: #2c009f
+}
+
+.hljs-comment,.hljs-quote,.hljs-deletion,.hljs-meta {
+	color: #e60415
+}
+
+.hljs-keyword,.hljs-selector-tag,.hljs-literal,.hljs-doctag,.hljs-title,.hljs-section,.hljs-type,.hljs-name,.hljs-selector-id,.hljs-strong {
+	font-weight: bold
+}
+
+.hljs-emphasis {
+	font-style: italic
+}
+
+/* self1 */
+pre {
+  position: relative;
+  margin-bottom: 24px;
+  border-radius: 3px;
+  border: 1px solid #C3CCD0;
+  background: #FFF;
+  overflow: hidden;
+}
+code {
+ display: block;
+ padding: 12px 24px;
+ overflow-y: auto;
+ font-weight: 300;
+ font-family: Menlo, monospace;
+ font-size: 0.8em;
+}
+code.has-numbering {
+  margin-left: 21px;
+}
+.pre-numbering {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  padding: 12px 2px 12px 0;
+  border-right: 1px solid #C3CCD0;
+  border-radius: 3px 0 0 3px;
+  background-color: #EEE;
+  text-align: right;
+  font-family: Menlo, monospace;
+  font-size: 0.8em;
+  color: #AAA;
+}
+
+/* self2 */
+/* hljs {
+	border: 0;
+	font-size: 12px;
+	display: block;
+	padding: 1px;
+	margin: 0;
+	width: 100%;
+	font-weight: 200;
+	color: #333;
+	white-space: pre-wrap
+}
+.hljs ol {
+	list-style: decimal;
+	margin: 0px 0px 0 40px !important;
+	padding: 0px;
+}
+.hljs ol li {
+	list-style: decimal-leading-zero;
+	border-left: 1px solid #ddd !important;
+	padding: 5px!important;
+	margin: 0 !important;
+	white-space: pre;
+} */
+
+.hljs {
+	border: 0;
+	font-family: "Consulas", "Courier New", Courier, mono, serif;
+	font-size: 12px;
+	background: #eee !important;
+	display: block;
+	padding: 1px;
+	margin: 0;
+	width: 100%;
+	font-weight: 200;
+	color: #333;
+	white-space: pre-wrap
+}
+.hljs ul {
+	list-style: decimal;
+	background-color: #fff;
+	margin: 0px 0px 0 40px !important;
+	padding: 0px;
+}
+.hljs ul li {
+	list-style: decimal-leading-zero;
+	border-left: 1px solid #ddd !important;
+	background: #fff;
+	padding: 5px!important;
+	margin: 0 !important;
+	line-height: 14px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.hljs ul li:nth-of-type(even) {
+	background-color: #fcfcfc;
+	color: inherit;
+}
+
