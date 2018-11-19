@@ -17,8 +17,7 @@
 				</el-col>
 				<el-col :span="23">
 					<div class="grid-content">
-						<div class="a-con f16 markdown-body" v-highlight v-html="markdownToHtml">
-						</div>
+						<div class="a-con f16 markdown-body" v-highlight v-html="markdownToHtml"></div>
 						<h1 class="f18 fwb" style="margin: 20px 0;" v-if="comments.length">留言</h1>
 						<div class="a-comment" v-if="comments.length">
 							<Comment v-for="item in comments" :key="item._id" :comment="item"/>
@@ -41,6 +40,16 @@
 	import Comment from '../components/comment';
 	import Api from '../api/getData';
 	import marked from 'marked';
+	marked.setOptions({
+		renderer: new marked.Renderer(),
+		gfm: true,
+		tables: true,
+		breaks: false,
+		pedantic: false,
+		sanitize: true,
+		smartLists: true,
+		smartypants: false
+	});
 
 	export default {
 		data(){
@@ -113,10 +122,12 @@
 		},
 		watch: {
 			'essay.content': {
-				handler() {
-					setTimeout(() => {
-						// this.addLineNum();
-					}, 1000);
+				handler(newValue) {
+					if(newValue){
+						setTimeout(() => {
+							this.addLineNum();
+						}, 1000);
+					}
 				},
 				immediate: true,
 				deep: true
